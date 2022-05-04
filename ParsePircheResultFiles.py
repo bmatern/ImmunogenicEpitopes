@@ -85,6 +85,7 @@ def pairPircheResults(combinedPircheData=None):
     transplantationIds = sorted(list(transplantationIds))
 
     # Loop transplant ids
+    raise Exception ('Continue the script here, it is not done yet')
 
     # Get Patient and Donor results from dictionary
 
