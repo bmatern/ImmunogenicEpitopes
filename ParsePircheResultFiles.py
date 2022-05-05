@@ -129,59 +129,59 @@ def calculateFullEpitopes(recipientData=None, donorData=None):
 
     # TODO: probably clean this up and make a submethod
     drb11PresentsA1Cores = sorted(list(donorData['a1Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_a1'] = [recipientDrb11 + "~" + pep + '(' + donorData['a1'] + ')' for pep in drb11PresentsA1Cores]
+    presentedPeptides['drb11_presents_a1'] = set([recipientDrb11 + "~" + pep + '(' + donorData['a1'] + ')' for pep in drb11PresentsA1Cores])
     drb12PresentsA1Cores = sorted(list(donorData['a1Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_a1'] = [recipientDrb12 + "~" + pep + '(' + donorData['a1'] + ')' for pep in drb12PresentsA1Cores]
+    presentedPeptides['drb12_presents_a1'] = set([recipientDrb12 + "~" + pep + '(' + donorData['a1'] + ')' for pep in drb12PresentsA1Cores])
     drb11PresentsB1Cores = sorted(list(donorData['b1Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_b1'] = [recipientDrb11 + "~" + pep + '(' + donorData['b1'] + ')' for pep in drb11PresentsB1Cores]
+    presentedPeptides['drb11_presents_b1'] = set([recipientDrb11 + "~" + pep + '(' + donorData['b1'] + ')' for pep in drb11PresentsB1Cores])
     drb12PresentsB1Cores = sorted(list(donorData['b1Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_b1'] = [recipientDrb12 + "~" + pep + '(' + donorData['b1'] + ')' for pep in drb12PresentsB1Cores]
+    presentedPeptides['drb12_presents_b1'] = set([recipientDrb12 + "~" + pep + '(' + donorData['b1'] + ')' for pep in drb12PresentsB1Cores])
     drb11PresentsC1Cores = sorted(list(donorData['c1Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_c1'] = [recipientDrb11 + "~" + pep + '(' + donorData['c1'] + ')' for pep in drb11PresentsC1Cores]
+    presentedPeptides['drb11_presents_c1'] = set([recipientDrb11 + "~" + pep + '(' + donorData['c1'] + ')' for pep in drb11PresentsC1Cores])
     drb12PresentsC1Cores = sorted(list(donorData['c1Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_c1'] = [recipientDrb12 + "~" + pep + '(' + donorData['c1'] + ')' for pep in drb12PresentsC1Cores]
+    presentedPeptides['drb12_presents_c1'] = set([recipientDrb12 + "~" + pep + '(' + donorData['c1'] + ')' for pep in drb12PresentsC1Cores])
 
     drb11PresentsA2Cores = sorted(list(donorData['a2Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_a2'] = [recipientDrb11 + "~" + pep + '(' + donorData['a2'] + ')' for pep in drb11PresentsA2Cores]
+    presentedPeptides['drb11_presents_a2'] = set([recipientDrb11 + "~" + pep + '(' + donorData['a2'] + ')' for pep in drb11PresentsA2Cores])
     drb12PresentsA2Cores = sorted(list(donorData['a2Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_a2'] = [recipientDrb12 + "~" + pep + '(' + donorData['a2'] + ')' for pep in drb12PresentsA2Cores]
+    presentedPeptides['drb12_presents_a2'] = set([recipientDrb12 + "~" + pep + '(' + donorData['a2'] + ')' for pep in drb12PresentsA2Cores])
     drb11PresentsB2Cores = sorted(list(donorData['b2Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_b2'] = [recipientDrb11 + "~" + pep + '(' + donorData['b2'] + ')' for pep in drb11PresentsB2Cores]
+    presentedPeptides['drb11_presents_b2'] = set([recipientDrb11 + "~" + pep + '(' + donorData['b2'] + ')' for pep in drb11PresentsB2Cores])
     drb12PresentsB2Cores = sorted(list(donorData['b2Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_b2'] = [recipientDrb12 + "~" + pep + '(' + donorData['b2'] + ')' for pep in drb12PresentsB2Cores]
+    presentedPeptides['drb12_presents_b2'] = set([recipientDrb12 + "~" + pep + '(' + donorData['b2'] + ')' for pep in drb12PresentsB2Cores])
     drb11PresentsC2Cores = sorted(list(donorData['c2Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_c2'] = [recipientDrb11 + "~" + pep + '(' + donorData['c2'] + ')' for pep in drb11PresentsC2Cores]
+    presentedPeptides['drb11_presents_c2'] = set([recipientDrb11 + "~" + pep + '(' + donorData['c2'] + ')' for pep in drb11PresentsC2Cores])
     drb12PresentsC2Cores = sorted(list(donorData['c2Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_c2'] = [recipientDrb12 + "~" + pep + '(' + donorData['c2'] + ')' for pep in drb12PresentsC2Cores]
+    presentedPeptides['drb12_presents_c2'] = set([recipientDrb12 + "~" + pep + '(' + donorData['c2'] + ')' for pep in drb12PresentsC2Cores])
 
 
     drb11PresentsDrb11Cores = sorted(list(donorData['drb11Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_drb11'] = [recipientDrb11 + "~" + pep + '(' + donorData['drb11'] + ')' for pep in drb11PresentsDrb11Cores]
+    presentedPeptides['drb11_presents_drb11'] = set([recipientDrb11 + "~" + pep + '(' + donorData['drb11'] + ')' for pep in drb11PresentsDrb11Cores])
     drb12PresentsDrb11Cores = sorted(list(donorData['drb11Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_drb11'] = [recipientDrb12 + "~" + pep + '(' + donorData['drb11'] + ')' for pep in drb12PresentsDrb11Cores]
+    presentedPeptides['drb12_presents_drb11'] = set([recipientDrb12 + "~" + pep + '(' + donorData['drb11'] + ')' for pep in drb12PresentsDrb11Cores])
 
     drb11PresentsDrb12Cores = sorted(list(donorData['drb12Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_drb12'] = [recipientDrb11 + "~" + pep + '(' + donorData['drb12'] + ')' for pep in drb11PresentsDrb12Cores]
+    presentedPeptides['drb11_presents_drb12'] = set([recipientDrb11 + "~" + pep + '(' + donorData['drb12'] + ')' for pep in drb11PresentsDrb12Cores])
     drb12PresentsDrb12Cores = sorted(list(donorData['drb12Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_drb12'] = [recipientDrb12 + "~" + pep + '(' + donorData['drb12'] + ')' for pep in drb12PresentsDrb12Cores]
+    presentedPeptides['drb12_presents_drb12'] = set([recipientDrb12 + "~" + pep + '(' + donorData['drb12'] + ')' for pep in drb12PresentsDrb12Cores])
 
     drb11PresentsDqb11Cores = sorted(list(donorData['dqb11Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_dqb11'] = [recipientDrb11 + "~" + pep + '(' + donorData['dqb11'] + ')' for pep in drb11PresentsDqb11Cores]
+    presentedPeptides['drb11_presents_dqb11'] = set([recipientDrb11 + "~" + pep + '(' + donorData['dqb11'] + ')' for pep in drb11PresentsDqb11Cores])
     drb12PresentsDqb11Cores = sorted(list(donorData['dqb11Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_dqb11'] = [recipientDrb12 + "~" + pep + '(' + donorData['dqb11'] + ')' for pep in drb12PresentsDqb11Cores]
+    presentedPeptides['drb12_presents_dqb11'] = set([recipientDrb12 + "~" + pep + '(' + donorData['dqb11'] + ')' for pep in drb12PresentsDqb11Cores])
 
     drb11PresentsDqb12Cores = sorted(list(donorData['dqb12Originated'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_dqb12'] = [recipientDrb11 + "~" + pep + '(' + donorData['dqb12'] + ')' for pep in drb11PresentsDqb12Cores]
+    presentedPeptides['drb11_presents_dqb12'] = set([recipientDrb11 + "~" + pep + '(' + donorData['dqb12'] + ')' for pep in drb11PresentsDqb12Cores])
     drb12PresentsDqb12Cores = sorted(list(donorData['dqb12Originated'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_dqb12'] = [recipientDrb12 + "~" + pep + '(' + donorData['dqb12'] + ')' for pep in drb12PresentsDqb12Cores]
+    presentedPeptides['drb12_presents_dqb12'] = set([recipientDrb12 + "~" + pep + '(' + donorData['dqb12'] + ')' for pep in drb12PresentsDqb12Cores])
 
 
     # TODO: Add DQA1, DPB1,DPA1, DRB345
     '''
     drb11PresentsDqa1Cores = sorted(list(donorData['drb1PresentsDqa1UniqueCores'].intersection(donorData['drb11PresentsUniqueCores'])))
-    presentedPeptides['drb11_presents_dqa1'] = [recipientDrb11 + "~" + pep for pep in drb11PresentsDqa1Cores]
+    presentedPeptides['drb11_presents_dqa1'] = set([recipientDrb11 + "~" + pep for pep in drb11PresentsDqa1Cores])
     drb12PresentsDqa1Cores = sorted(list(donorData['drb1PresentsDqa1UniqueCores'].intersection(donorData['drb12PresentsUniqueCores'])))
-    presentedPeptides['drb12_presents_dqa1'] = [recipientDrb12 + "~" + pep for pep in drb12PresentsDqa1Cores]
+    presentedPeptides['drb12_presents_dqa1'] = set([recipientDrb12 + "~" + pep for pep in drb12PresentsDqa1Cores])
     '''
     return presentedPeptides
 
@@ -220,9 +220,43 @@ def constructOutputLine(epitopes=None, recipTyping=None, donorTyping=None, delim
         recipTyping['a1']
         ,recipTyping['a2']
         ,recipTyping['b1']
-        , recipTyping['b2']
+        ,recipTyping['b2']
         ,recipTyping['c1']
-        , recipTyping['c2']
+        ,recipTyping['c2']
+        ,recipTyping['drb11']
+        ,recipTyping['drb12']
+        ,recipTyping['dqb11']
+        ,recipTyping['dqb12']
+        ,donorTyping['a1']
+        ,donorTyping['a2']
+        ,donorTyping['b1']
+        ,donorTyping['b2']
+        ,donorTyping['c1']
+        ,donorTyping['c2']
+        ,donorTyping['drb11']
+        ,donorTyping['drb12']
+        ,donorTyping['dqb11']
+        ,donorTyping['dqb12']
+        ,str(len(list(epitopes['drb11_presents_a1'].union(epitopes['drb12_presents_a1']))))
+        ,str(len(list(epitopes['drb11_presents_a2'].union(epitopes['drb12_presents_a2']))))
+        ,str(len(list(epitopes['drb11_presents_b1'].union(epitopes['drb12_presents_b1']))))
+        ,str(len(list(epitopes['drb11_presents_b2'].union(epitopes['drb12_presents_b2']))))
+        ,str(len(list(epitopes['drb11_presents_c1'].union(epitopes['drb12_presents_c1']))))
+        ,str(len(list(epitopes['drb11_presents_c2'].union(epitopes['drb12_presents_c2']))))
+        ,str(len(list(epitopes['drb11_presents_drb11'].union(epitopes['drb12_presents_drb11']))))
+        ,str(len(list(epitopes['drb11_presents_drb12'].union(epitopes['drb12_presents_drb12']))))
+        ,str(len(list(epitopes['drb11_presents_dqb11'].union(epitopes['drb12_presents_dqb11']))))
+        ,str(len(list(epitopes['drb11_presents_dqb12'].union(epitopes['drb12_presents_dqb12']))))
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_a1'].union(epitopes['drb12_presents_a1']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_a2'].union(epitopes['drb12_presents_a2']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_b1'].union(epitopes['drb12_presents_b1']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_b2'].union(epitopes['drb12_presents_b2']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_c1'].union(epitopes['drb12_presents_c1']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_c2'].union(epitopes['drb12_presents_c2']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_drb11'].union(epitopes['drb12_presents_drb11']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_drb12'].union(epitopes['drb12_presents_drb12']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dqb11'].union(epitopes['drb12_presents_dqb11']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dqb12'].union(epitopes['drb12_presents_dqb12']))))) + "\""
     ])
     return outputLine
 
@@ -233,11 +267,13 @@ def writeOutputFile(outputDirectory=None, epitopes=None, combinedPircheData=None
     outputFileName = join(outputDirectory,'TcellEpitopes.csv')
 
     # TODO: I should somehow find a way to highlight the positive alleles
+    #  or just list it as a column in here somewhere.
     with open(outputFileName,'w') as outputFile:
-        headerLine = delimiter.join(['Transplantation_ID','R_A1','R_A2','R_B1','R_B2','R_C1','R_C2','R_DRB1_1','R_DRB1_2'
-            ,'D_A1','D_A2','D_B1','D_B2','D_C1','D_C2','D_DRB1_1','D_DRB1_2'
-            ,'PIRCHE_A_Score','PIRCHE_B_Score','PIRCHE_C_Score','PIRCHE_DRB1_Score','PIRCHE_DQB1_Score'
-            ,'PIRCHE_A','PIRCHE_B','PIRCHE_C','PIRCHE_DRB1','PIRCHE_DQB1'])
+        headerLine = delimiter.join(['Transplantation_ID','R_A1','R_A2','R_B1','R_B2','R_C1','R_C2','R_DRB1_1','R_DRB1_2','R_DQB1_1','R_DQB1_2'
+            ,'D_A1','D_A2','D_B1','D_B2','D_C1','D_C2','D_DRB1_1','D_DRB1_2','D_DQB1_1','D_DQB1_2'
+            ,'PIRCHE_A1_Score','PIRCHE_A2_Score','PIRCHE_B1_Score','PIRCHE_B2_Score','PIRCHE_C1_Score','PIRCHE_C2_Score'
+            ,'PIRCHE_DRB11_Score','PIRCHE_DRB12_Score','PIRCHE_DQB11_Score','PIRCHE_DQB12_Score'
+            ,'PIRCHE_A1','PIRCHE_A2','PIRCHE_B1','PIRCHE_B2','PIRCHE_C1','PIRCHE_C2','PIRCHE_DRB11','PIRCHE_DRB12','PIRCHE_DQB11','PIRCHE_DQB12'])
         outputFile.write(headerLine + newline)
         for transplantationID in epitopes.keys():
             currentEpitopes= epitopes[transplantationID]
@@ -249,7 +285,7 @@ def writeOutputFile(outputDirectory=None, epitopes=None, combinedPircheData=None
                         , donorTyping=combinedPircheData['Donor_' + str(transplantationID) + '_All'])
                     + newline)
             except Exception as e:
-                print('Trouble writing output file for transplant ID ' + str(transplantationID))
+                print('Trouble writing output file for transplant ID ' + str(transplantationID) + ':' + str(e))
 
 
 if __name__ == '__main__':
