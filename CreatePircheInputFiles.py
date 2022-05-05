@@ -199,6 +199,7 @@ def createPirchePairLine(transplantationId=None, genotype=None, dsaIndicator=Non
         , donorPositiveLine=donorPositiveLine, donorNegativeLine=donorNegativeLine, dsaConditional=dsaIndicator['dq4'])
     donorLine, donorPositiveLine, donorNegativeLine = addTypingConditional(newGenotype=genotype['dDPB11'], donorLine=donorLine
         , donorPositiveLine=donorPositiveLine, donorNegativeLine=donorNegativeLine, dsaConditional=dsaIndicator['dp1'])
+
     donorLine, donorPositiveLine, donorNegativeLine = addTypingConditional(newGenotype=genotype['dDPB12'], donorLine=donorLine
         , donorPositiveLine=donorPositiveLine, donorNegativeLine=donorNegativeLine, dsaConditional=dsaIndicator['dp2'])
     donorLine, donorPositiveLine, donorNegativeLine = addTypingConditional(newGenotype=genotype['dDPA11'], donorLine=donorLine
