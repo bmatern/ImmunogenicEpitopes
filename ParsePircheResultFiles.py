@@ -24,7 +24,7 @@ def readPircheFile(pircheResultsFile=None, delimiter=','):
                 patientId = pircheTokens[0]
                 if len(pircheTokens) > 3 and len(str(patientId).strip())>0:
                     #print('row:' + str(row.strip()))
-                    #print('patientID:' + str(patientId))
+                    print('patientID:' + str(patientId))
 
                     pircheData[patientId] = {}
 
@@ -36,6 +36,20 @@ def readPircheFile(pircheResultsFile=None, delimiter=','):
                     pircheData[patientId]['c2']=pircheTokens[6]
                     pircheData[patientId]['drb11']=pircheTokens[7]
                     pircheData[patientId]['drb12']=pircheTokens[8]
+                    pircheData[patientId]['drb31']=pircheTokens[9]
+                    pircheData[patientId]['drb32']=pircheTokens[10]
+                    pircheData[patientId]['drb41']=pircheTokens[11]
+                    pircheData[patientId]['drb42']=pircheTokens[12]
+                    pircheData[patientId]['drb51']=pircheTokens[13]
+                    pircheData[patientId]['drb52']=pircheTokens[14]
+                    pircheData[patientId]['dqa11']=pircheTokens[15]
+                    pircheData[patientId]['dqa12']=pircheTokens[16]
+                    pircheData[patientId]['dqb11']=pircheTokens[17]
+                    pircheData[patientId]['dqb12']=pircheTokens[18]
+                    pircheData[patientId]['dpa11']=pircheTokens[19]
+                    pircheData[patientId]['dpa12']=pircheTokens[20]
+                    pircheData[patientId]['dpb11']=pircheTokens[21]
+                    pircheData[patientId]['dpb12']=pircheTokens[22]
 
 
                     drb11Presents = pircheTokens[37]
@@ -43,8 +57,17 @@ def readPircheFile(pircheResultsFile=None, delimiter=','):
                     drb12Presents = pircheTokens[38]
                     pircheData[patientId]['drb12PresentsUniqueCores'] = parsePircheCoresString(pircheCoresString=drb12Presents)
 
-                    #print('drb11Presents:' + str(drb11Presents))
-                    #print('drb12Presents:' + str(drb12Presents))
+                    drb1PresentsA = pircheTokens[126]
+                    pircheData[patientId]['drb1PresentsAUniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsA)
+                    drb1PresentsB = pircheTokens[167]
+                    pircheData[patientId]['drb1PresentsBUniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsB)
+                    drb1PresentsC = pircheTokens[148]
+                    pircheData[patientId]['drb1PresentsCUniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsC)
+                    drb1PresentsDrb1 = pircheTokens[159]
+                    pircheData[patientId]['drb1PresentsDrb1UniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsDrb1)
+
+                    print('drb1PresentsDrb1:' + str(drb1PresentsDrb1))
+                    print('pircheData[patientId][drb1PresentsDrb1UniqueCores]:' + str(pircheData[patientId]['drb1PresentsDrb1UniqueCores']))
 
 
 
