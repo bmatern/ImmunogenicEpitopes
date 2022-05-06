@@ -208,6 +208,9 @@ def createPirchePairLine(transplantationId=None, genotype=None, dsaIndicator=Non
         , donorPositiveLine=donorPositiveLine, donorNegativeLine=donorNegativeLine, dsaConditional=dsaIndicator['dp4'])
 
     positiveAlleles = str(donorPositiveLine)
+
+    '''
+    # This is not necessary, instead I use the Skip high-resolution extrapolation and skip missing loci options.
     # The donor lines need to have at a minimum A,B,DRB1 types.
     # If the're missing, fill it in using the recipient typing (should not make any new pirches I believe)
     if('A*' not in donorPositiveLine):
@@ -223,6 +226,7 @@ def createPirchePairLine(transplantationId=None, genotype=None, dsaIndicator=Non
         donorNegativeLine = addTyping(typingLine=donorNegativeLine, newGenotype=genotype['rB1'])
     if ('DRB1*' not in donorNegativeLine):
         donorNegativeLine = addTyping(typingLine=donorNegativeLine, newGenotype=genotype['rDRB11'])
+    '''
 
     pirchPairLine=patientLine + newline + donorLine + newline + donorPositiveLine + newline + donorNegativeLine
     return pirchPairLine, positiveAlleles
