@@ -374,16 +374,24 @@ def collectAndStratefyEpitopes(outputDirectory=None, epitopes=None, combinedPirc
             epitopeCountFile.write(dataline + newline)
 
 
-def countEpitopesPerAllele(donorGenotype=None, donorPeptides=None):
+def countEpitopesPerAllele(donorGenotype=None, recipientGenotype=None, donorPeptides=None):
     currentEpitopesPerAllele = []
 
     for alleleIndex in donorGenotype.keys():
         if (len(str(donorGenotype[alleleIndex]))>1
             and alleleIndex in ['a1','a2','c1','c2','drb11','drb12','dqb11','dqb12']):
 
-            currentAllele=str(donorGenotype[alleleIndex])
-            epitopes = donorPeptides['drb11_presents_' + str(alleleIndex)].union(donorPeptides['drb12_presents_' + str(alleleIndex)])
-            currentEpitopesPerAllele.append((currentAllele,str(len(list(epitopes)))))
+            currentAllele = str(donorGenotype[alleleIndex])
+
+            # exclude recipient alleles. No antibodies in this case.
+            alleleExistsInRecipient=False
+            for recipAlleleIndex in recipientGenotype.keys():
+                if str(recipientGenotype[recipAlleleIndex]) == currentAllele:
+                    alleleExistsInRecipient=True
+
+            if not alleleExistsInRecipient:
+                epitopes = donorPeptides['drb11_presents_' + str(alleleIndex)].union(donorPeptides['drb12_presents_' + str(alleleIndex)])
+                currentEpitopesPerAllele.append((currentAllele,str(len(list(epitopes)))))
 
     return currentEpitopesPerAllele
 
@@ -397,11 +405,11 @@ def countAllEpitopesPerAllele(outputDirectory=None, epitopes=None, combinedPirch
     epitopesPerAlleleNegative = []
     for transplantationId in epitopes.keys():
         try:
-            epitopesPerAlleleAll.extend(countEpitopesPerAllele(donorGenotype=combinedPircheData['Donor_' + str(transplantationId) + '_All'], donorPeptides=epitopes[transplantationId]['all']))
-            epitopesPerAllelePositive.extend(countEpitopesPerAllele(donorGenotype=combinedPircheData['Donor_' + str(transplantationId) + '_Positive'], donorPeptides=epitopes[transplantationId]['positive']))
-            epitopesPerAlleleNegative.extend(countEpitopesPerAllele(donorGenotype=combinedPircheData['Donor_' + str(transplantationId) + '_Negative'], donorPeptides=epitopes[transplantationId]['negative']))
+            epitopesPerAlleleAll.extend(countEpitopesPerAllele(donorGenotype=combinedPircheData['Donor_' + str(transplantationId) + '_All'], recipientGenotype=combinedPircheData['Recipient_' + str(transplantationId)], donorPeptides=epitopes[transplantationId]['all']))
+            epitopesPerAllelePositive.extend(countEpitopesPerAllele(donorGenotype=combinedPircheData['Donor_' + str(transplantationId) + '_Positive'], recipientGenotype=combinedPircheData['Recipient_' + str(transplantationId)], donorPeptides=epitopes[transplantationId]['positive']))
+            epitopesPerAlleleNegative.extend(countEpitopesPerAllele(donorGenotype=combinedPircheData['Donor_' + str(transplantationId) + '_Negative'], recipientGenotype=combinedPircheData['Recipient_' + str(transplantationId)], donorPeptides=epitopes[transplantationId]['negative']))
         except KeyError as e:
-            print('could not count epitopes pere allele for transplantation id ' + str(transplantationId) + ':' + str(e))
+            print('could not count epitopes per allele for transplantation id ' + str(transplantationId) + ':' + str(e))
 
     outputFileName = join(outputDirectory,'EpitopesPerAlleleAll.csv')
     with open(outputFileName, 'w') as outputFile:
