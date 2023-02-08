@@ -80,6 +80,26 @@ def readPircheFile(pircheResultsFile=None, delimiter=','):
                     dqb12Originated = pircheTokens[74]
                     pircheData[patientId]['dqb12Originated'] = parsePircheCoresString(pircheCoresString=dqb12Originated)
 
+                    dqa11Originated = pircheTokens[71]
+                    pircheData[patientId]['dqa11Originated'] = parsePircheCoresString(pircheCoresString=dqa11Originated)
+                    dqa12Originated = pircheTokens[72]
+                    pircheData[patientId]['dqa12Originated'] = parsePircheCoresString(pircheCoresString=dqa12Originated)
+
+
+
+
+                    dpb11Originated = pircheTokens[77]
+                    pircheData[patientId]['dpb11Originated'] = parsePircheCoresString(pircheCoresString=dpb11Originated)
+                    dpb12Originated = pircheTokens[78]
+                    pircheData[patientId]['dpb12Originated'] = parsePircheCoresString(pircheCoresString=dpb12Originated)
+
+                    dpa11Originated = pircheTokens[75]
+                    pircheData[patientId]['dpa11Originated'] = parsePircheCoresString(pircheCoresString=dpa11Originated)
+                    dpa12Originated = pircheTokens[76]
+                    pircheData[patientId]['dpa12Originated'] = parsePircheCoresString(pircheCoresString=dpa12Originated)
+
+
+
                     # TODO: Add DQA1, DPB1, DPA1, DRB3,4,5
 
                     drb1PresentsA = pircheTokens[126]
@@ -93,8 +113,19 @@ def readPircheFile(pircheResultsFile=None, delimiter=','):
                     drb1PresentsDqb1 = pircheTokens[214]
                     pircheData[patientId]['drb1PresentsDqb1UniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsDqb1)
 
+                    drb1PresentsDqa1 = pircheTokens[203]
+                    pircheData[patientId]['drb1PresentsDqa1UniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsDqa1)
+
+
+                    drb1PresentsDpb1 = pircheTokens[236]
+                    pircheData[patientId]['drb1PresentsDpb1UniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsDpb1)
+
+                    drb1PresentsDpa1 = pircheTokens[225]
+                    pircheData[patientId]['drb1PresentsDpa1UniqueCores'] = parsePircheCoresString(pircheCoresString=drb1PresentsDpa1)
+
                     #print('drb1PresentsDrb1:' + str(drb1PresentsDrb1))
                     #print('pircheData[patientId][drb1PresentsDrb1UniqueCores]:' + str(pircheData[patientId]['drb1PresentsDrb1UniqueCores']))
+                    pass
 
             else:
                 pass # Header Row
@@ -187,6 +218,37 @@ def calculateFullEpitopes(recipientData=None, donorData=None):
     presentedPeptides['drb12_presents_dqb12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dqb12Originated']
         , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dqb12'])
 
+    # DRB1~DQA1
+    presentedPeptides['drb11_presents_dqa11'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dqa11Originated']
+        , presenterEpitopes=donorData['drb11PresentsUniqueCores'], recipientPresenter=recipientDrb11, donorOriginatedAllele=donorData['dqa11'])
+    presentedPeptides['drb12_presents_dqa11'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dqa11Originated']
+        , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dqa11'])
+    presentedPeptides['drb11_presents_dqa12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dqa12Originated']
+        , presenterEpitopes=donorData['drb11PresentsUniqueCores'], recipientPresenter=recipientDrb11, donorOriginatedAllele=donorData['dqa12'])
+    presentedPeptides['drb12_presents_dqa12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dqa12Originated']
+        , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dqa12'])
+
+    # DRB1~DPB1
+    presentedPeptides['drb11_presents_dpb11'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpb11Originated']
+        , presenterEpitopes=donorData['drb11PresentsUniqueCores'], recipientPresenter=recipientDrb11, donorOriginatedAllele=donorData['dpb11'])
+    presentedPeptides['drb12_presents_dpb11'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpb11Originated']
+        , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dpb11'])
+    presentedPeptides['drb11_presents_dpb12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpb12Originated']
+        , presenterEpitopes=donorData['drb11PresentsUniqueCores'], recipientPresenter=recipientDrb11, donorOriginatedAllele=donorData['dpb12'])
+    presentedPeptides['drb12_presents_dpb12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpb12Originated']
+        , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dpb12'])
+
+    # DRB1~DPA1
+    presentedPeptides['drb11_presents_dpa11'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpa11Originated']
+        , presenterEpitopes=donorData['drb11PresentsUniqueCores'], recipientPresenter=recipientDrb11, donorOriginatedAllele=donorData['dpa11'])
+    presentedPeptides['drb12_presents_dpa11'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpa11Originated']
+        , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dpa11'])
+    presentedPeptides['drb11_presents_dpa12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpa12Originated']
+        , presenterEpitopes=donorData['drb11PresentsUniqueCores'], recipientPresenter=recipientDrb11, donorOriginatedAllele=donorData['dpa12'])
+    presentedPeptides['drb12_presents_dpa12'] = combinePresenterAndEpitopes(originatedEpitopes=donorData['dpa12Originated']
+        , presenterEpitopes=donorData['drb12PresentsUniqueCores'], recipientPresenter=recipientDrb12, donorOriginatedAllele=donorData['dpa12'])
+
+
     # TODO: Add DQA1, DPB1,DPA1, DRB345
     '''
     drb11PresentsDqa1Cores = sorted(list(donorData['drb1PresentsDqa1UniqueCores'].intersection(donorData['drb11PresentsUniqueCores'])))
@@ -269,6 +331,12 @@ def constructOutputLine(epitopes=None, recipTyping=None, donorTyping=None, delim
         ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_drb12'].union(epitopes['drb12_presents_drb12']))))) + "\""
         ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dqb11'].union(epitopes['drb12_presents_dqb11']))))) + "\""
         ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dqb12'].union(epitopes['drb12_presents_dqb12']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dqa11'].union(epitopes['drb12_presents_dqa11']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dqa12'].union(epitopes['drb12_presents_dqa12']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dpb11'].union(epitopes['drb12_presents_dpb11']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dpb12'].union(epitopes['drb12_presents_dpb12']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dpa11'].union(epitopes['drb12_presents_dpa11']))))) + "\""
+        ,"\"" + str('\n'.join(sorted(list(epitopes['drb11_presents_dpa12'].union(epitopes['drb12_presents_dpa12']))))) + "\""
     ])
     return outputLine
 
@@ -285,7 +353,8 @@ def writePIRCHEEpitopeSummary(outputDirectory=None, epitopes=None, combinedPirch
             ,'D_A1','D_A2','D_B1','D_B2','D_C1','D_C2','D_DRB1_1','D_DRB1_2','D_DQB1_1','D_DQB1_2'
             ,'PIRCHE_A1_Score','PIRCHE_A2_Score','PIRCHE_B1_Score','PIRCHE_B2_Score','PIRCHE_C1_Score','PIRCHE_C2_Score'
             ,'PIRCHE_DRB11_Score','PIRCHE_DRB12_Score','PIRCHE_DQB11_Score','PIRCHE_DQB12_Score'
-            ,'PIRCHE_A1','PIRCHE_A2','PIRCHE_B1','PIRCHE_B2','PIRCHE_C1','PIRCHE_C2','PIRCHE_DRB11','PIRCHE_DRB12','PIRCHE_DQB11','PIRCHE_DQB12'])
+            ,'PIRCHE_A1','PIRCHE_A2','PIRCHE_B1','PIRCHE_B2','PIRCHE_C1','PIRCHE_C2','PIRCHE_DRB11','PIRCHE_DRB12','PIRCHE_DQB11','PIRCHE_DQB12'
+            ,'PIRCHE_DQA11','PIRCHE_DQA12','PIRCHE_DPB11','PIRCHE_DPB12','PIRCHE_DPA11','PIRCHE_DPA12'])
         outputFile.write(headerLine + newline)
         for transplantationID in epitopes.keys():
             currentEpitopes= epitopes[transplantationID]
@@ -426,6 +495,25 @@ def countAllEpitopesPerAllele(outputDirectory=None, epitopes=None, combinedPirch
         for epitopePerAlleleNegative in epitopesPerAlleleNegative:
             outputFile.write(str(epitopePerAlleleNegative[0]) + delimiter + str(epitopePerAlleleNegative[1]) + newline)
 
+
+def summarizeOriginatingAlleles(outputDirectory=None, epitopes=None, combinedPircheData=None, delimiter=',', newline='\n'):
+    print('Summarizing originating alleles:' + str(outputDirectory))
+
+    outputFileName = join(outputDirectory, 'OriginatingAllelesSummary.csv')
+
+    with open(outputFileName, 'w') as outputFile:
+        headerLine = delimiter.join(['Locus,AveragePircheAll,AveragePirchePositive,AveragePircheNegative'])
+        outputFile.write(headerLine + newline)
+
+        for transplantationId in epitopes.keys():
+            pass
+
+        # for each allele in all alleles
+            # Add # of pirche to all alleles list
+
+            # If it's in the positi
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
@@ -451,6 +539,6 @@ if __name__ == '__main__':
 
     countAllEpitopesPerAllele(outputDirectory=args.output, epitopes=epitopes, combinedPircheData=combinedPircheData)
 
-
+    summarizeOriginatingAlleles(outputDirectory=args.output, epitopes=epitopes, combinedPircheData=combinedPircheData)
 
 
